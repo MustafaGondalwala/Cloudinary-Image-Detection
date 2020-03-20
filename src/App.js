@@ -1,24 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route } from "react-router-dom";
+import LoginPage from "./components/pages/LoginPage";
+import HomePage from "./components/pages/HomePage";
+import RegisterPage from "./components/pages/RegisterPage";
+import FileUploadPage from "./components/pages/FileUploadPage";
+import DashboardPage from "./components/pages/DashboardPage";
+import TopNavigation from "./components/navigations/TopNavigation";
+import GuestRoute from "./components/routes/GuestRoute";
+import UserRoute from "./components/routes/UserRoute";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+    	<TopNavigation />
+	    <Route path="/" exact component={HomePage}/>
+	    <GuestRoute  path="/login" exact component={LoginPage} />
+	    <GuestRoute  path="/register" exact component={RegisterPage} />
+	    <UserRoute path="/image-upload" exact component={FileUploadPage} />
+	    <UserRoute path="/dashboard" exact component={DashboardPage} />
     </div>
   );
 }
