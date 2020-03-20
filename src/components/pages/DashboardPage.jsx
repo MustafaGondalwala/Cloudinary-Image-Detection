@@ -18,7 +18,7 @@ class DashboardPage extends Component {
 		if(Object.keys(this.props.files).length === 0){
 			axios({
 				method:'post',
-				url:'https://django-ml-backend.herokuapp.com/api/cloudinary/file',
+				url:'http://ec2-3-6-67-212.ap-south-1.compute.amazonaws.com:8000/api/cloudinary/file',
 				data:{
 					userId:this.props.id
 				}
@@ -44,7 +44,7 @@ class DashboardPage extends Component {
 		})
 		axios({
 			method:'post',
-			url:'https://django-ml-backend.herokuapp.com/api/cloudinary/file/deleteImage',
+			url:'http://ec2-3-6-67-212.ap-south-1.compute.amazonaws.com:8000/api/cloudinary/file/deleteImage',
 			data: {
 				fileId:id
 			}
@@ -68,7 +68,7 @@ class DashboardPage extends Component {
 			loading:true
 		})
 		axios({
-			url:'https://django-ml-backend.herokuapp.com/api/cloudinary/file/search',
+			url:'http://ec2-3-6-67-212.ap-south-1.compute.amazonaws.com:8000/api/cloudinary/file/search',
 			data: {
 				searchValue:value
 			},
@@ -97,7 +97,7 @@ class DashboardPage extends Component {
 			page:page
 		})
 		axios({
-			url:'https://django-ml-backend.herokuapp.com/api/file/getMore',
+			url:'http://ec2-3-6-67-212.ap-south-1.compute.amazonaws.com:8000/api/file/getMore',
 			method:'post',
 			data:{
 				page: page
